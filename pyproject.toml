@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dcs_link"
+version = "0.1.0"
+description = "A lightweight, high-performance Python library for connecting to DCS-BIOS and DCS-INSIGHT in DCS World"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "guidons", email = "guidons.tech@gmail.com"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/guidons/dcs_link"
+
+[tool.setuptools.packages.find]
+where = ["src"]
