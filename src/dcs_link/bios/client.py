@@ -149,10 +149,11 @@ class BiosClient:
                 self.aircraft_name = value
             elif value == "":
                 if "MISSION_ENDED" in self._event_handlers:
+                    h = self._event_handlers["MISSION_ENDED"]
                     try:
-                        self._event_handlers["MISSION_ENDED"](None)
-                    except Exception:
-                        self._logger.error(f" Error in event MISSION_ENDED: {h.__name__}")
+                        h(None)
+                    except Exception as e:
+                        self._logger.error(f" Error in event MISSION_ENDED: {h.__name__} - {e}")
                 
                 self.close()
             
@@ -162,10 +163,11 @@ class BiosClient:
             return
         
         if bios_code in self._event_handlers:
+            h = self._event_handlers[bios_code]
             try:
-                self._event_handlers[bios_code](value)
-            except Exception:
-                self._logger.error(f" Error in event {bios_code}: {h.__name__}")
+                h(value)
+            except Exception as e:
+                self._logger.error(f"Error in event {bios_code}: {h.__name__} - {e}")
 
     def close(self):
         """

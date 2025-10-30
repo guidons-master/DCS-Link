@@ -22,7 +22,7 @@ class ColoredFormatter(logging.Formatter):
         return formatted_message
 
 class Logger():    
-    def __init__(self, name: str = "dcs_link", level: int = logging.INFO):
+    def __init__(self, name: str = __package__, level: int = logging.INFO):
         self.logger = logging.getLogger(name)
         self.logger.setLevel(level)
         
